@@ -4,8 +4,11 @@ import '../authentication/login.dart';
 import 'detail.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key, required this.name}) : super(key: key);
-  final String name;
+  const HomePage(
+      {Key? key, required this.loggedEmail, required this.loggedPassword})
+      : super(key: key);
+  final String loggedEmail;
+  final String loggedPassword;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +17,10 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                Get.off(() => const LoginScreen());
+                Get.off(() => LoginScreen(
+                      email: loggedEmail,
+                      password: loggedPassword,
+                    ));
               },
               icon: const Icon(Icons.logout))
         ],
@@ -23,7 +29,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text("Hello $name"),
+            Text("Hello $loggedEmail"),
             ElevatedButton(
                 onPressed: () {
                   Get.to(() => const DetailPage());

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TextFormExample extends StatefulWidget {
-  TextFormExample({Key? key}) : super(key: key);
+  const TextFormExample({Key? key}) : super(key: key);
 
   @override
-  _TextFormExampleState createState() => _TextFormExampleState();
+  State<TextFormExample> createState() => _TextFormExampleState();
 }
 
 class _TextFormExampleState extends State<TextFormExample> {

@@ -1,3 +1,4 @@
+import 'package:f_testing_template/ui/pages/authentication/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,50 +10,80 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final _textController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(15.0, 8.0, 15.0, 8.0),
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: const Text("Create account with email"),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20.0, 25.0, 20.0, 12.0),
+          child: Form(
+            key: _formKey,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "Sign up Page",
-                  style: Theme.of(context).textTheme.headline6,
+                const Text(
+                  'Enter account information',
+                  style: TextStyle(fontSize: 20),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                TextField(
-                  controller: _textController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter your user',
-                  ),
+                TextFormField(
+                  controller: _emailController,
+                  decoration: const InputDecoration(labelText: 'Email'),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Enter email";
+                    } else if (!value.contains('@')) {
+                      return "Enter valid email address";
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
+                TextFormField(
+                  controller: _passwordController,
+                  decoration: const InputDecoration(labelText: "Password"),
+                  keyboardType: TextInputType.number,
+                  obscureText: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Enter password";
+                    } else if (value.length < 6) {
+                      return "Password should have at least 6 characters";
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                OutlinedButton(
                     onPressed: () {
-                      if (_textController.text.isEmpty) {
-                        Get.snackbar('Error', 'Value can not be empty',
-                            icon: const Icon(Icons.alarm),
-                            backgroundColor: Colors.red);
+                      // this line dismiss the keyboard by taking away the focus of the TextFormField and giving it to an unused
+                      FocusScope.of(context).requestFocus(FocusNode());
+                      final form = _formKey.currentState;
+                      form!.save();
+                      if (form.validate()) {
+                        Get.to(LoginScreen(
+                            email: _emailController.text,
+                            password: _passwordController.text));
                       } else {
-                        Get.back();
+                        const snackBar = SnackBar(
+                          content: Text('Validation nok'),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       }
                     },
-                    child: const Text("Login")),
-                const SizedBox(
-                  height: 20,
-                ),
+                    child: const Text("Create account")),
               ],
             ),
           ),
