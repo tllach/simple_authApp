@@ -16,8 +16,10 @@ class HomePage extends StatelessWidget {
         title: const Text("Home"),
         actions: [
           IconButton(
+              key: const Key('ButtonHomeLogOff'),
               onPressed: () {
                 Get.off(() => LoginScreen(
+                      key: const Key('LoginScreen'),
                       email: loggedEmail,
                       password: loggedPassword,
                     ));
@@ -29,10 +31,13 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text("Hello $loggedEmail"),
+            Text(key: const Key('TextHomeHello'), "Hello $loggedEmail"),
             ElevatedButton(
+                key: const Key('ButtonHomeDetail'),
                 onPressed: () {
-                  Get.to(() => const DetailPage());
+                  Get.to(() => const DetailPage(
+                        key: Key('DetailPage'),
+                      ));
                 },
                 child: const Text("Details")),
           ],

@@ -36,6 +36,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 20,
                 ),
                 TextFormField(
+                  key: const Key('TextFormFieldSignUpEmail'),
                   controller: _emailController,
                   decoration: const InputDecoration(labelText: 'Email'),
                   validator: (value) {
@@ -50,6 +51,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 20,
                 ),
                 TextFormField(
+                  key: const Key('TextFormFieldSignUpPassword'),
                   controller: _passwordController,
                   decoration: const InputDecoration(labelText: "Password"),
                   keyboardType: TextInputType.number,
@@ -67,6 +69,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 20,
                 ),
                 OutlinedButton(
+                    key: const Key('ButtonSignUpSubmit'),
                     onPressed: () {
                       // this line dismiss the keyboard by taking away the focus of the TextFormField and giving it to an unused
                       FocusScope.of(context).requestFocus(FocusNode());
@@ -83,7 +86,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       }
                     },
-                    child: const Text("Create account")),
+                    child: const Text("Submit")),
               ],
             ),
           ),

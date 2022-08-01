@@ -38,6 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 20,
                 ),
                 TextFormField(
+                  key: const Key('TextFormFieldLoginEmail'),
                   controller: _emailController,
                   decoration: const InputDecoration(labelText: 'Email'),
                   validator: (value) {
@@ -52,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 20,
                 ),
                 TextFormField(
+                  key: const Key('TextFormFieldLoginPassword'),
                   controller: _passwordController,
                   decoration: const InputDecoration(labelText: "Password"),
                   keyboardType: TextInputType.number,
@@ -69,6 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 20,
                 ),
                 OutlinedButton(
+                    key: const Key('ButtonLoginSubmit'),
                     onPressed: () {
                       // this line dismiss the keyboard by taking away the focus of the TextFormField and giving it to an unused
                       FocusScope.of(context).requestFocus(FocusNode());
@@ -78,6 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         if (widget.email == _emailController.text &&
                             widget.password == _passwordController.text) {
                           Get.to(HomePage(
+                            key: const Key('HomePage'),
                             loggedEmail: _emailController.text,
                             loggedPassword: _passwordController.text,
                           ));
@@ -99,7 +103,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 20,
                 ),
                 TextButton(
-                    onPressed: () => Get.to(const SignUpPage()),
+                    key: const Key('ButtonLoginCreateAccount'),
+                    onPressed: () => Get.to(const SignUpPage(
+                          key: Key('SignUpPage'),
+                        )),
                     child: const Text('Create account'))
               ],
             ),

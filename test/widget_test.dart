@@ -9,5 +9,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Login widget test', (WidgetTester tester) async {});
+  testWidgets('Widget login validación email', (WidgetTester tester) async {});
+
+  testWidgets(
+      'Widget login validación password', (WidgetTester tester) async {});
+
+  testWidgets(
+      'Widget login autenticación exitosa', (WidgetTester tester) async {});
+
+  testWidgets(
+      'Widget login autenticación no exitosa', (WidgetTester tester) async {});
+
+  testWidgets('Widget signUp validación email', (WidgetTester tester) async {});
+
+  testWidgets(
+      'Widget signUp validación password', (WidgetTester tester) async {});
+
+  testWidgets(
+      'Widget home visualización correo', (WidgetTester tester) async {});
+
+  testWidgets('Widget home nevegación detalle', (WidgetTester tester) async {});
+
+  testWidgets('Widget home logout', (WidgetTester tester) async {});
 }
