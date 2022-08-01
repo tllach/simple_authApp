@@ -9,10 +9,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('Widget login validación email', (WidgetTester tester) async {});
-
   testWidgets(
-      'Widget login validación password', (WidgetTester tester) async {});
+      'Widget login validación @ email', (WidgetTester tester) async {});
+
+  testWidgets('Widget login validación campo vacio email',
+      (WidgetTester tester) async {});
+
+  testWidgets('Widget login validación número de caracteres password',
+      (WidgetTester tester) async {});
+
+  testWidgets('Widget login validación campo vacio password',
+      (WidgetTester tester) async {});
 
   testWidgets(
       'Widget login autenticación exitosa', (WidgetTester tester) async {});
@@ -20,10 +27,17 @@ void main() {
   testWidgets(
       'Widget login autenticación no exitosa', (WidgetTester tester) async {});
 
-  testWidgets('Widget signUp validación email', (WidgetTester tester) async {});
-
   testWidgets(
-      'Widget signUp validación password', (WidgetTester tester) async {});
+      'Widget signUp validación @ email', (WidgetTester tester) async {});
+
+  testWidgets('Widget signUp validación campo vacio email',
+      (WidgetTester tester) async {});
+
+  testWidgets('Widget signUp validación número de caracteres password',
+      (WidgetTester tester) async {});
+
+  testWidgets('Widget signUp validación campo vacio password',
+      (WidgetTester tester) async {});
 
   testWidgets(
       'Widget home visualización correo', (WidgetTester tester) async {});
