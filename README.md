@@ -4,7 +4,7 @@
 
 Run test with:
 
-flutter test
+flutter test      
 flutter test integration_test/authentication_test.dart
 
 Solution:
