@@ -47,6 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     } else if (!value.contains('@')) {
                       return "Enter valid email address";
                     }
+                    return null;
                   },
                 ),
                 const SizedBox(

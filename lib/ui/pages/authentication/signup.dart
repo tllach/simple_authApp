@@ -19,6 +19,7 @@ class _SignUpPageState extends State<SignUpPage> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text("Create account with email"),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
         child: Padding(
@@ -45,6 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     } else if (!value.contains('@')) {
                       return "Enter valid email address";
                     }
+                    return null;
                   },
                 ),
                 const SizedBox(
